@@ -6,7 +6,7 @@
         <div class="col-3 mb-3">
             <div class="card shadow">
             <div class="card-body text-center">
-                <a class="text-success" href="/product/index/@product.Id">
+                <a class="text-success" asp-controller="product" asp-action="index" asp-route-id="@product.Id">
                     <h5>@product.Name</h5>
                 </a>
                 <h2 class="text-danger">@product.Price.ToString("c")</h2>
