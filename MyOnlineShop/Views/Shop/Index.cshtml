@@ -1,0 +1,25 @@
+﻿@model List<Product>
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-3 mb-3">
+            <div class="card shadow">
+            <div class="card-body text-center">
+                <a class="text-success" href="/product/index/@product.Id">
+                    <h5>@product.Name</h5>
+                </a>
+                <h2 class="text-danger">@product.Price.ToString("c")</h2>
+                <a class="btn btn-success" href="#">Добавить в корзину</a>
+            </div>
+        </div>
+    </div>
+    }
+</div>
+
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
