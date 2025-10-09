@@ -1,25 +1,29 @@
 ﻿@model List<Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
 
 <div class="row">
-    @foreach (var product in Model)
+    @if (Model != null)
     {
-        <div class="col-3 mb-3">
-            <div class="card shadow">
-            <div class="card-body text-center">
-                <a class="text-success" asp-controller="product" asp-action="index" asp-route-id="@product.Id">
-                    <h5>@product.Name</h5>
-                </a>
-                <h2 class="text-danger">@product.Price.ToString("c")</h2>
-                <a class="btn btn-success" href="#">Добавить в корзину</a>
+        @foreach (var product in Model)
+        {
+            <div class="col-3 mb-3">
+                <div class="card shadow">
+                    <div class="card-body text-center">
+                        <a class="text-success" asp-controller="product" asp-action="index" asp-route-Id="@product.Id">
+                            <h5>@product.Name</h5>
+                        </a>
+                        <h2 class="text-danger">@product.Price.ToString("c")</h2>
+                        <a class="btn btn-success" asp-controller="cart" asp-action="add" asp-route-productId="@product.Id">Добавить в корзину</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        }
+    }
+    else
+    {
+        <h2>Нет товаров для отображения!</h2>
     }
 </div>
-
-
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
