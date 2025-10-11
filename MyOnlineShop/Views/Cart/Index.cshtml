@@ -22,7 +22,11 @@
                             <td class="fw-bold">@(i + 1)</td>
                             <td align="left">@Model.Items[i].Product.Name</td>
                             <td align="left">@Model.Items[i].Product.Price</td>
-                            <td>@Model.Items[i].Quantity</td>
+                            <td>
+                                <a class="btn btn-link" asp-controller="cart" asp-action="subtract" asp-route-productId="@Model.Items[i].Product.Id">-</a>
+                                @Model.Items[i].Quantity
+                                <a class="btn btn-link" asp-controller="cart" asp-action="add" asp-route-productId="@Model.Items[i].Product.Id">+</a>
+                            </td>
                             <td class="fw-bold">@Model.Items[i].Price</td>
                         </tr>
                     }
@@ -38,6 +42,11 @@
                                asp-controller="Cart"
                                asp-action="Index">
                                 Оформить заказ
+                            </a>
+                            <a class="btn"
+                               asp-controller="Cart"
+                               asp-action="clear">
+                                Очистить
                             </a>
                         </th>
                     </tr>

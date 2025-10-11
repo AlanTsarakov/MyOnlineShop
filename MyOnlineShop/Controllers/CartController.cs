@@ -18,7 +18,23 @@ namespace MyOnlineShop.Controllers
             {
                 carts.Add(product, Constants.UserId);
             }
-            return RedirectToAction("Index", "Shop");
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Subtract(int productId)
+        {
+            var product = products.TryGetById(productId);
+            if (product != null)
+            {
+                carts.Subtract(product, Constants.UserId);
+            }
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Clear()
+        {
+            carts.Clear(Constants.UserId);
+            return RedirectToAction("Index");
         }
     }
 }

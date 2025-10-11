@@ -48,5 +48,33 @@ namespace MyOnlineShop.Repositories
                 }
             }
         }
+
+        public void Subtract(Product product, string userId)
+        {
+            var cart = TryGetByUserId(userId);
+            if (cart != null)
+            {
+                CartItem? cartItem = cart.Items.FirstOrDefault(item => item.Product.Id == product.Id);
+
+                if (cartItem != null)
+                {
+                    cartItem.Quantity--;
+
+                    if (cartItem.Quantity == 0)
+                    {
+                        cart.Items.Remove(cartItem);
+                    }
+                }
+
+            }
+        }
+        public void Clear(string userId)
+        {
+            var cart = TryGetByUserId(userId);
+            if (cart.Items.Count>0)
+            {
+                cart.Items.Clear();
+            }
+        }
     }
 }
