@@ -6,10 +6,16 @@ namespace MyOnlineShop.Controllers
 {
     public class ProductController : Controller
     {
-        // GET: ProductController
+        private readonly ProductsRepository _products;
+
+        public ProductController()
+        {
+            _products = new ProductsRepository();
+        }
+
         public ActionResult Index(int id)
         {
-            var product = ProductsRepository.TryGetById(id);
+            var product = _products.TryGetById(id);
             return View(product);
         }
     }

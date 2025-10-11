@@ -4,18 +4,18 @@ using MyOnlineShop.Repositories;
 
 namespace MyOnlineShop.Controllers
 {
-    public class ShopController : Controller
+    public class ShopController(ProductsRepository productsRepository) : Controller
     {
-        // GET: ShopController
+
         public ActionResult Index()
         {
-            var products = ProductsRepository.GetAll();
+            var products = productsRepository.GetAll();
             return View(products);
         }
 
         public ActionResult Add(string name, int price)
         {
-            ProductsRepository.Add(name, price);
+            productsRepository.Add(name, price);
             return RedirectToAction("Index");
         }
 

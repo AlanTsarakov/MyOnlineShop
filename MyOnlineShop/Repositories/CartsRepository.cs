@@ -3,15 +3,15 @@ using MyOnlineShop.Models;
 
 namespace MyOnlineShop.Repositories
 {
-    public static class CartsRepository
+    public class CartsRepository
     {
-        private static List<Cart> _carts = new List<Cart>();
-        public static Cart? TryGetByUserId(string userId)
+        private List<Cart> _carts = new List<Cart>();
+        public Cart? TryGetByUserId(string userId)
         {
             return _carts?.FirstOrDefault(cart => cart.UserId == userId);
         }
 
-        public static void Add(Product product, string userId)
+        public void Add(Product product, string userId)
         {
             var cart = TryGetByUserId(userId);
 

@@ -3,18 +3,21 @@ using MyOnlineShop.Repositories;
 
 namespace MyOnlineShop.Controllers
 {
-    public class CartController : Controller
+    public class CartController(CartsRepository carts, ProductsRepository products) : Controller
     {
         public IActionResult Index()
         {
-            var cart = CartsRepository.TryGetByUserId(Constants.UserId);
+            var cart = carts.TryGetByUserId(Constants.UserId);
             return View(cart);
         }
 
         public IActionResult Add(int productId)
         {
-            var product = ProductsRepository.TryGetById(productId);
-            CartsRepository.Add(product, Constants.UserId);
+            var product = products.TryGetById(productId);
+            if (product != null)
+            {
+                carts.Add(product, Constants.UserId);
+            }
             return RedirectToAction("Index", "Shop");
         }
     }

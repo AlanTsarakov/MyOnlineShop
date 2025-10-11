@@ -1,3 +1,5 @@
+using MyOnlineShop.Repositories;
+
 namespace MyOnlineShop
 {
     public class Program
@@ -8,6 +10,8 @@ namespace MyOnlineShop
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSingleton<CartsRepository>();
+            builder.Services.AddSingleton<ProductsRepository>();
 
             var app = builder.Build();
 

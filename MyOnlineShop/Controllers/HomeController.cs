@@ -8,14 +8,7 @@ namespace MyOnlineShop.Controllers
     {
         public IActionResult Index()
         {
-            var users = UsersRepository.GetAll();
-            return View(users);
-        }
-
-        public IActionResult Add(string name)
-        {
-            UsersRepository.Add(name);
-            return RedirectToAction("Index");
+            return View();
         }
     }
 }

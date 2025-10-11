@@ -2,22 +2,32 @@
 
 namespace MyOnlineShop.Repositories
 {
-    public static class ProductsRepository
+    public class ProductsRepository
     {
-        private static int _instanceCounter = 0;
-        static List<Product> products = new List<Product> { new Product(++_instanceCounter, "Хлеб", 20), new Product(++_instanceCounter, "Масло", 800), new Product(++_instanceCounter, "Колбаcа", 200) };
+        private int _instanceCounter = 0;
 
-        public static List<Product> GetAll()
+        List<Product> products;
+
+        public ProductsRepository()
+        {
+            products = new List<Product> {
+            new Product(++_instanceCounter, "Хлеб", 20),
+            new Product(++_instanceCounter, "Масло", 800),
+            new Product(++_instanceCounter, "Колбаcа", 200)
+            };
+        }
+
+        public List<Product> GetAll()
         {
             return products;
         }
 
-        public static void Add(string name, int price)
+        public void Add(string name, int price)
         {
             products.Add(new Product(++_instanceCounter, name, price));
         }
 
-        public static Product? TryGetById(int id) 
+        public Product? TryGetById(int id) 
         {
             try
             {
