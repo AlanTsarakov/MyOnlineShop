@@ -10,8 +10,8 @@ namespace MyOnlineShop
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddSingleton<CartsRepository>();
-            builder.Services.AddSingleton<ProductsRepository>();
+            builder.Services.AddSingleton<ICartsRepository, InMemoryCartsRepository>();
+            builder.Services.AddSingleton<IProductsRepository, InMemoryProductsRepository>();
 
             var app = builder.Build();
 

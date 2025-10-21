@@ -3,7 +3,7 @@ using MyOnlineShop.Repositories;
 
 namespace MyOnlineShop.Controllers
 {
-    public class CartController(CartsRepository carts, ProductsRepository products) : Controller
+    public class CartController(InMemoryCartsRepository carts, InMemoryProductsRepository products) : Controller
     {
         public IActionResult Index()
         {

@@ -6,11 +6,11 @@ namespace MyOnlineShop.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly ProductsRepository _products;
+        private readonly InMemoryProductsRepository _products;
 
         public ProductController()
         {
-            _products = new ProductsRepository();
+            _products = new InMemoryProductsRepository();
         }
 
         public ActionResult Index(int id)

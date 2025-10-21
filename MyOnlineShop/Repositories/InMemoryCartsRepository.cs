@@ -3,7 +3,7 @@ using MyOnlineShop.Models;
 
 namespace MyOnlineShop.Repositories
 {
-    public class CartsRepository
+    public class InMemoryCartsRepository : ICartsRepository
     {
         private List<Cart> _carts = new List<Cart>();
         public Cart? TryGetByUserId(string userId)
@@ -71,7 +71,7 @@ namespace MyOnlineShop.Repositories
         public void Clear(string userId)
         {
             var cart = TryGetByUserId(userId);
-            if (cart.Items.Count>0)
+            if (cart.Items.Count > 0)
             {
                 cart.Items.Clear();
             }

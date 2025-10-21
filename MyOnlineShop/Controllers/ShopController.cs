@@ -4,7 +4,7 @@ using MyOnlineShop.Repositories;
 
 namespace MyOnlineShop.Controllers
 {
-    public class ShopController(ProductsRepository productsRepository) : Controller
+    public class ShopController(InMemoryProductsRepository productsRepository) : Controller
     {
 
         public ActionResult Index()

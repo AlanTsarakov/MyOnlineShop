@@ -2,13 +2,13 @@
 
 namespace MyOnlineShop.Repositories
 {
-    public class ProductsRepository
+    public class InMemoryProductsRepository : IProductsRepository
     {
         private int _instanceCounter = 0;
 
         List<Product> products;
 
-        public ProductsRepository()
+        public InMemoryProductsRepository()
         {
             products = new List<Product> {
             new Product(++_instanceCounter, "Хлеб", 20),
@@ -27,7 +27,7 @@ namespace MyOnlineShop.Repositories
             products.Add(new Product(++_instanceCounter, name, price));
         }
 
-        public Product? TryGetById(int id) 
+        public Product? TryGetById(int id)
         {
             try
             {
