@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MyOnlineShop.Interfaces;
 using MyOnlineShop.Repositories;
 
 namespace MyOnlineShop.Controllers
 {
-    public class ShopController(InMemoryProductsRepository productsRepository) : Controller
+    public class ShopController(IProductsRepository productsRepository) : Controller
     {
 
         public ActionResult Index()

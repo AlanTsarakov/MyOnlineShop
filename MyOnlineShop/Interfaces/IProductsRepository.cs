@@ -1,6 +1,6 @@
 ﻿using MyOnlineShop.Models;
 
-namespace MyOnlineShop.Repositories
+namespace MyOnlineShop.Interfaces
 {
     public interface IProductsRepository
     {

@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyOnlineShop.Interfaces;
 using MyOnlineShop.Repositories;
 
 namespace MyOnlineShop.Controllers
 {
-    public class CartController(InMemoryCartsRepository carts, InMemoryProductsRepository products) : Controller
+    public class CartController(ICartsRepository carts, IProductsRepository products) : Controller
     {
         public IActionResult Index()
         {

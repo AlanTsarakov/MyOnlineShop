@@ -9,7 +9,7 @@
                     <h4>@Model.Name</h4>
                     <h2 class="text-danger">@Model.Price.ToString("c")</h2>
 
-                    <a class="btn btn-success" href="#">Добавить в корзину</a>
+                    <a class="btn btn-success" asp-controller="cart" asp-action="add" asp-route-productId="@Model.Id">Добавить</a>
                 </div>
             </div>
         </div>

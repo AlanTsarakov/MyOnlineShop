@@ -1,3 +1,4 @@
+using MyOnlineShop.Interfaces;
 using MyOnlineShop.Repositories;
 
 namespace MyOnlineShop
@@ -12,6 +13,7 @@ namespace MyOnlineShop
             builder.Services.AddControllersWithViews();
             builder.Services.AddSingleton<ICartsRepository, InMemoryCartsRepository>();
             builder.Services.AddSingleton<IProductsRepository, InMemoryProductsRepository>();
+            builder.Services.AddSingleton<IOrdersRepository, InMemoryOrdersRepository>();
 
             var app = builder.Build();
 
