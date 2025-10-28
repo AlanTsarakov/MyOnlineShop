@@ -14,6 +14,7 @@ namespace MyOnlineShop
             builder.Services.AddSingleton<ICartsRepository, InMemoryCartsRepository>();
             builder.Services.AddSingleton<IProductsRepository, InMemoryProductsRepository>();
             builder.Services.AddSingleton<IOrdersRepository, InMemoryOrdersRepository>();
+            builder.Services.AddSingleton<IFavoritesRepository, InMemoryFavoritesRepository>();
 
             var app = builder.Build();
 
